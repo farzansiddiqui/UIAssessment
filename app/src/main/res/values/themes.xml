@@ -1,0 +1,30 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.UIAssessment" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+       <!--  <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="toolbarStyle">@style/MyToolbar</item>
+
+
+    </style>
+
+    <style name="Theme.UIAssessment" parent="Base.Theme.UIAssessment" />
+    <!-- Define your custom Toolbar style -->
+    <style name="MyToolbar" parent="Widget.Material3.Toolbar">
+        <!-- Add or modify the title text style -->
+        <item name="titleTextAppearance">@style/MyToolbarTitleTextAppearance</item>
+    </style>
+
+    <style name="MyToolbarTitleTextAppearance" parent="TextAppearance.Material3.HeadlineMedium">
+        <!-- Set the textStyle attribute to make the title bold -->
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="uiButtonStyle" parent="Widget.Material3.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:text">팔로우</item>
+        <item name="backgroundTint">@color/button_color</item>
+    </style>
+</resources>

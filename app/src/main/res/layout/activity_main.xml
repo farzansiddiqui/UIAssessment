@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolBar"
+        android:layout_width="@dimen/width_0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/menu_item"
+        app:navigationIcon="@drawable/round_arrow_back"
+        app:subtitleCentered="true"
+        app:title="자유톡"
+        app:titleCentered="true" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="@dimen/width_0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/materialToolBar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profile_MaterialCardView"
+                style="@style/Widget.Material3.CardView.Filled"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:elevation="0dp"
+                app:cardCornerRadius="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/image_description"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profile_man" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/name_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4dp"
+                android:text="안녕 나 응애"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/profile_MaterialCardView"
+                app:layout_constraintTop_toTopOf="@id/profile_MaterialCardView" />
+
+            <ImageView
+                android:id="@+id/check_circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4dp"
+                android:src="@drawable/baseline_check_circle_24"
+                app:layout_constraintStart_toEndOf="@id/name_textView"
+                app:layout_constraintTop_toTopOf="@id/name_textView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4dp"
+                android:text="1일전"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="11sp"
+                app:layout_constraintStart_toEndOf="@id/check_circle"
+                app:layout_constraintTop_toTopOf="@id/check_circle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="165cm . 53Kg"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/name_textView"
+                app:layout_constraintStart_toStartOf="@id/name_textView"
+                app:layout_constraintTop_toBottomOf="@id/name_textView" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/uiButtonStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/body_textView"
+                android:layout_width="@dimen/width_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profile_MaterialCardView">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:text="지난 월요일에 했던 이벤트 중 가장 괜찮은 상품 뭐야?"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:gravity="start"
+                    android:text="지난 월요일에 2023년 S/S 트렌드 알아보기 이벤트 참석했던 팝들아~ 혹시 어떤 상품이 제일 괜찮았어? "
+                    android:textColor="@android:color/darker_gray" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:gravity="start"
+                    android:text="후기 올라오는거 보면 로우라이즈? 그게 제일 반응 좋고 그 테이블이 제일 재밌었다던데 맞아???"
+                    android:textColor="@android:color/darker_gray" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:gravity="start"
+                    android:text="올해 로우라이즈가 트렌드라길래 나도 도전해보고 싶은데 말라깽이가 아닌 사람들도 잘 어울릴지 너무너무 궁금해ㅜㅜ로우라이즈 테이블에 있었던 팝들 있으면 어땠는지 후기 좀 공유해주라~~! "
+                    android:textColor="@android:color/darker_gray" />
+
+
+            </LinearLayout>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
