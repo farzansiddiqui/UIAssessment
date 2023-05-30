@@ -4,27 +4,42 @@
         <!-- Customize your light theme here. -->
        <!--  <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="toolbarStyle">@style/MyToolbar</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
 
 
     </style>
 
     <style name="Theme.UIAssessment" parent="Base.Theme.UIAssessment" />
-    <!-- Define your custom Toolbar style -->
+
     <style name="MyToolbar" parent="Widget.Material3.Toolbar">
-        <!-- Add or modify the title text style -->
         <item name="titleTextAppearance">@style/MyToolbarTitleTextAppearance</item>
     </style>
 
     <style name="MyToolbarTitleTextAppearance" parent="TextAppearance.Material3.HeadlineMedium">
-        <!-- Set the textStyle attribute to make the title bold -->
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">18sp</item>
     </style>
 
     <style name="uiButtonStyle" parent="Widget.Material3.Button">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:text">팔로우</item>
+        <item name="android:padding">@dimen/_8dp</item>
         <item name="backgroundTint">@color/button_color</item>
+    </style>
+
+    <style name="uiTextViewStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:paddingTop">@dimen/_4dp</item>
+        <item name="android:paddingBottom">@dimen/_4dp</item>
+        <item name="android:paddingStart">@dimen/_8dp</item>
+        <item name="android:paddingEnd">@dimen/_8dp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/_12sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:background">@drawable/textview_outline_background</item>
+        <item name="android:fontFamily">sans-serif-black</item>
     </style>
 </resources>

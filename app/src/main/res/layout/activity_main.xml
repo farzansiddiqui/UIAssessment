@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
-
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolBar"
         android:layout_width="@dimen/width_0dp"
@@ -22,8 +21,11 @@
         app:titleCentered="true" />
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="@dimen/width_0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/materialToolBar">
@@ -31,7 +33,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_16dp">
+            android:layout_marginHorizontal="@dimen/_16dp"
+            android:layout_marginBottom="@dimen/_20dp">
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/profile_MaterialCardView"
@@ -57,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4dp"
-                android:text="안녕 나 응애"
+                android:text="@string/profile_name"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/profile_MaterialCardView"
@@ -68,6 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4dp"
+                android:contentDescription="@string/image_description"
                 android:src="@drawable/baseline_check_circle_24"
                 app:layout_constraintStart_toEndOf="@id/name_textView"
                 app:layout_constraintTop_toTopOf="@id/name_textView" />
@@ -83,14 +87,35 @@
                 app:layout_constraintTop_toTopOf="@id/check_circle" />
 
             <TextView
+                android:id="@+id/cm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="165cm . 53Kg"
+                android:text="165cm"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@id/name_textView"
                 app:layout_constraintStart_toStartOf="@id/name_textView"
                 app:layout_constraintTop_toBottomOf="@id/name_textView" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="2dp"
+                android:layout_height="2dp"
+                android:layout_margin="@dimen/_4dp"
+                android:background="@drawable/dot_grey"
+                app:layout_constraintTop_toTopOf="@id/cm"
+                app:layout_constraintStart_toEndOf="@id/cm"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="53Kg"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp"
+                    android:layout_marginStart="2dp"
+                    app:layout_constraintTop_toTopOf="@id/cm"
+                    app:layout_constraintStart_toEndOf="@id/view"/>
+
+
 
             <com.google.android.material.button.MaterialButton
                 style="@style/uiButtonStyle"
@@ -98,7 +123,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
-                android:id="@+id/body_textView"
+                android:id="@+id/body_LinearLayout"
                 android:layout_width="@dimen/width_0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -107,46 +132,449 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/profile_MaterialCardView">
 
+
                 <TextView
+                    android:id="@+id/textView_SubHeader"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="start"
-                    android:text="지난 월요일에 했던 이벤트 중 가장 괜찮은 상품 뭐야?"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/description_TextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_16dp"
                     android:gravity="start"
-                    android:text="지난 월요일에 2023년 S/S 트렌드 알아보기 이벤트 참석했던 팝들아~ 혹시 어떤 상품이 제일 괜찮았어? "
-                    android:textColor="@android:color/darker_gray" />
+                    android:textColor="@color/textColor" />
 
                 <TextView
+                    android:id="@+id/description1_TexView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_16dp"
                     android:gravity="start"
-                    android:text="후기 올라오는거 보면 로우라이즈? 그게 제일 반응 좋고 그 테이블이 제일 재밌었다던데 맞아???"
-                    android:textColor="@android:color/darker_gray" />
+                    android:textColor="@color/textColor" />
 
                 <TextView
+                    android:id="@+id/description2_TexView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_16dp"
                     android:gravity="start"
-                    android:text="올해 로우라이즈가 트렌드라길래 나도 도전해보고 싶은데 말라깽이가 아닌 사람들도 잘 어울릴지 너무너무 궁금해ㅜㅜ로우라이즈 테이블에 있었던 팝들 있으면 어땠는지 후기 좀 공유해주라~~! "
-                    android:textColor="@android:color/darker_gray" />
+                    android:textColor="@color/textColor" />
 
 
             </LinearLayout>
 
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/textViewConstrain"
+                android:layout_width="@dimen/width_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/body_LinearLayout">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/uiTextViewStyle"
+                    android:layout_marginEnd="@dimen/_4dp"
+                    android:text="@string/_2023"
+                    app:layout_constraintEnd_toStartOf="@+id/textView"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    style="@style/uiTextViewStyle"
+                    android:layout_marginEnd="@dimen/_4dp"
+                    android:text="@string/todayismonday"
+                    app:layout_constraintEnd_toStartOf="@+id/textView3"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/textView2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    style="@style/uiTextViewStyle"
+                    android:layout_marginEnd="@dimen/_4dp"
+                    android:text="@string/top"
+                    app:layout_constraintEnd_toStartOf="@+id/textView4"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    style="@style/uiTextViewStyle"
+                    android:text="@string/pops"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/textView3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/wow_TextView"
+                    style="@style/uiTextViewStyle"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:text="@string/wow"
+                    app:layout_constraintStart_toStartOf="@id/textView2"
+                    app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+                <TextView
+                    style="@style/uiTextViewStyle"
+                    android:layout_marginStart="@dimen/_8dp"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:text="@string/row"
+                    app:layout_constraintStart_toEndOf="@id/wow_TextView"
+                    app:layout_constraintTop_toBottomOf="@id/textView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_marginTop="@dimen/_16dp"
+                android:contentDescription="@string/image_description"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewConstrain" />
+
+            <LinearLayout
+                android:id="@+id/layoutCircle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20dp"
+                android:layout_marginEnd="@dimen/_20dp"
+                android:layout_marginBottom="@dimen/_8dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="15dp"
+                app:layout_constraintBottom_toBottomOf="@id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/heart_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8dp"
+                android:contentDescription="@string/image_description"
+                android:src="@drawable/heart_thin_icon"
+                app:layout_constraintStart_toStartOf="@id/imageView"
+                app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+            <TextView
+                android:id="@+id/five_textViewHeart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4dp"
+                android:text="@string/_5"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_12sp"
+                app:layout_constraintBottom_toBottomOf="@id/heart_icon"
+                app:layout_constraintStart_toEndOf="@id/heart_icon" />
+
+            <ImageView
+                android:id="@+id/comment_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8dp"
+                android:contentDescription="@string/image_description"
+                android:src="@drawable/comment_icon"
+                app:layout_constraintStart_toEndOf="@id/five_textViewHeart"
+                app:layout_constraintTop_toTopOf="@id/heart_icon" />
+
+
+            <TextView
+                android:id="@+id/five_textVieComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4dp"
+                android:text="@string/_5"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_12sp"
+                app:layout_constraintBottom_toBottomOf="@id/comment_icon"
+                app:layout_constraintStart_toEndOf="@id/comment_icon" />
+
+
+            <ImageView
+                android:id="@+id/bookmark_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8dp"
+                android:contentDescription="@string/image_description"
+                android:src="@drawable/outline_bookmark_border_24"
+                app:layout_constraintStart_toEndOf="@id/five_textVieComment"
+                app:layout_constraintTop_toTopOf="@id/heart_icon" />
+
+            <ImageView
+                android:id="@+id/more_horitz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8dp"
+                android:contentDescription="@string/image_description"
+                android:src="@drawable/baseline_more_horiz_24"
+                app:layout_constraintStart_toEndOf="@id/bookmark_icon"
+                app:layout_constraintTop_toTopOf="@id/heart_icon" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/comment_profile"
+                style="@style/Widget.Material3.CardView.Filled"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="32dp"
+                android:elevation="0dp"
+                app:cardCornerRadius="30dp"
+                app:layout_constraintStart_toStartOf="@id/heart_icon"
+                app:layout_constraintTop_toBottomOf="@id/heart_icon">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/image_description"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profile_man" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <TextView
+                android:id="@+id/CommentName_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4dp"
+                android:text="안녕 나 응애"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/comment_profile"
+                app:layout_constraintTop_toTopOf="@id/comment_profile" />
+
+
+            <ImageView
+                android:id="@+id/check_circleComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4dp"
+                android:contentDescription="@string/image_description"
+                android:src="@drawable/baseline_check_circle_24"
+                app:layout_constraintStart_toEndOf="@id/CommentName_textView"
+                app:layout_constraintTop_toTopOf="@id/CommentName_textView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4dp"
+                android:text="1일전"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="11sp"
+                app:layout_constraintStart_toEndOf="@id/check_circleComment"
+                app:layout_constraintTop_toTopOf="@id/check_circleComment" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/image_description"
+                android:src="@drawable/baseline_more_horiz_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/comment_profile" />
+
+            <TextView
+                android:id="@+id/commentTextView"
+                android:layout_width="@dimen/width_0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/CommentName_textView"
+                app:layout_constraintTop_toBottomOf="@id/comment_profile" />
+
+
+            <!--comment section-->
+
+            <ImageView
+                android:id="@+id/heart_icon_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8dp"
+                android:contentDescription="@string/image_description"
+                android:src="@drawable/heart_thin_icon"
+                app:layout_constraintStart_toStartOf="@id/commentTextView"
+                app:layout_constraintTop_toBottomOf="@id/commentTextView" />
+
+            <TextView
+                android:id="@+id/five_textViewHeart_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4dp"
+                android:text="@string/_5"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_12sp"
+                app:layout_constraintBottom_toBottomOf="@id/heart_icon_comment"
+                app:layout_constraintStart_toEndOf="@id/heart_icon_comment" />
+
+            <ImageView
+                android:id="@+id/comment_icon_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8dp"
+                android:contentDescription="@string/image_description"
+                android:src="@drawable/comment_icon"
+                app:layout_constraintStart_toEndOf="@id/five_textViewHeart_comment"
+                app:layout_constraintTop_toTopOf="@id/heart_icon_comment" />
+
+
+            <TextView
+                android:id="@+id/five_textVieComment_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4dp"
+                android:text="@string/_5"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/_12sp"
+                app:layout_constraintBottom_toBottomOf="@id/comment_icon_comment"
+                app:layout_constraintStart_toEndOf="@id/comment_icon_comment" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constrainLayout_btm"
+                android:layout_width="@dimen/width_0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/heart_icon_comment"
+                app:layout_constraintTop_toBottomOf="@id/heart_icon_comment">
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/reCommentProfile"
+                    style="@style/Widget.Material3.CardView.Filled"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="32dp"
+                    android:elevation="0dp"
+                    app:cardCornerRadius="30dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/image_description"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/man_comment" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <TextView
+                    android:id="@+id/ReCommentName_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:text="ㅇㅅㅇ"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/reCommentProfile"
+                    app:layout_constraintTop_toTopOf="@id/reCommentProfile" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:text="1일전"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toEndOf="@id/ReCommentName_textView"
+                    app:layout_constraintTop_toTopOf="@id/ReCommentName_textView" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_more_horiz_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/reCommentProfile" />
+
+                <TextView
+                    android:id="@+id/textView_comment"
+                    android:layout_width="@dimen/width_0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/_12sp"
+                    app:layout_constraintStart_toStartOf="@id/ReCommentName_textView"
+                    app:layout_constraintTop_toBottomOf="@id/reCommentProfile" />
+
+                <ImageView
+                    android:id="@+id/imageView_reHeart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/image_description"
+                    android:src="@drawable/heart_thin_icon"
+                    app:layout_constraintStart_toStartOf="@id/textView_comment"
+                    app:layout_constraintTop_toBottomOf="@id/textView_comment" />
+
+                <TextView
+                    android:id="@+id/textView_reCommentFive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4dp"
+                    android:text="@string/_5"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/_12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/imageView_reHeart"
+                    app:layout_constraintStart_toEndOf="@id/imageView_reHeart" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginBottom="25dp"
+        android:contentDescription="@string/image_description"
+        android:src="@drawable/outline_image_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16dp"
+        android:text="댓글을 남겨주세요."
+        android:textColor="@color/textColor"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="등록"
+        android:textColor="@color/textColor"
+        app:layout_constraintBottom_toBottomOf="@id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imageView2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

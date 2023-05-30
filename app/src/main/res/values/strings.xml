@@ -2,4 +2,12 @@
     <string name="app_name">UIAssessment</string>
     <string name="notification">Notification</string>
     <string name="image_description">Image Description</string>
+    <string name="_5">5</string>
+    <string name="_2023">#2023</string>
+    <string name="todayismonday">#TODAYISMONDAY</string>
+    <string name="top">#TOP</string>
+    <string name="pops">#POPS!</string>
+    <string name="wow">#WOW</string>
+    <string name="row">#Row</string>
+    <string name="profile_name">안녕 나 응애</string>
 </resources>
